@@ -30,5 +30,4 @@ AI-Based-Worker-Safety-Compliance-Detection/
 ├── models/README.md
 ├── requirements.txt
 └── README.md
-
 ​```
