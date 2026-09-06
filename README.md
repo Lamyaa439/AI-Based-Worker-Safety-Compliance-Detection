@@ -1,6 +1,8 @@
 # AI-Based-Worker-Safety-Compliance-Detection
 
+
 ​```
+
 AI-Based-Worker-Safety-Compliance-Detection/
 ├── notebooks/
 │   ├── 01_data_preparation.ipynb
@@ -28,4 +30,5 @@ AI-Based-Worker-Safety-Compliance-Detection/
 ├── models/README.md
 ├── requirements.txt
 └── README.md
+
 ​```
