@@ -104,7 +104,17 @@ def process_video(video_path):
 
 def build_interface() -> gr.Blocks:
     """Builds and returns the full Gradio interface, ready to launch."""
-    with gr.Blocks(title="Worker Safety Monitoring System") as demo:
+    
+    custom_theme = gr.themes.Soft(
+        primary_hue="teal",
+        neutral_hue="slate"
+    )
+    
+    light_css = """
+    body { background-color: #f8f9fa !important; }
+    """
+
+    with gr.Blocks(theme=custom_theme, css=light_css, title="Worker Safety Monitoring System") as demo:
         gr.Markdown("# 🦺 Worker Safety Monitoring System")
         gr.Markdown("Upload an image or video of a worker or job site, and the system will check for hardhat and safety vest compliance.")
 
