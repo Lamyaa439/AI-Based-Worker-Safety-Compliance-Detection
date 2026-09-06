@@ -1,5 +1,6 @@
 # AI-Based-Worker-Safety-Compliance-Detection
 
+​```
 AI-Based-Worker-Safety-Compliance-Detection/
 ├── notebooks/
 │   ├── 01_data_preparation.ipynb
@@ -12,19 +13,19 @@ AI-Based-Worker-Safety-Compliance-Detection/
 │   ├── overall_comparison.csv
 │   └── per_class_comparison.csv
 ├── app/
-│    ├── __init__.py
-│    ├── main.py                
-│    ├── config.py                
-│    ├── services/
-│    │   ├── __init__.py
-│    │   ├── detector.py          
-│    │   ├── logger.py            
-│    │   └── report.py           
-│    └── ui/
-│        ├── __init__.py
-│        └── interface.py 
-│   
+│   ├── __init__.py
+│   ├── main.py
+│   ├── config.py
+│   ├── services/
+│   │   ├── __init__.py
+│   │   ├── detector.py
+│   │   ├── logger.py
+│   │   └── report.py
+│   └── ui/
+│       ├── __init__.py
+│       └── interface.py
 ├── data/README.md
 ├── models/README.md
 ├── requirements.txt
 └── README.md
+​```
