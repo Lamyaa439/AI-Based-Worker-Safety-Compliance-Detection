@@ -10,6 +10,7 @@ import os
 from datetime import datetime
 
 from app.config import LOG_FILE
+from app.services.detector import format_timestamp
 
 
 def log_violations(violations: list, image_name: str):
@@ -34,13 +35,13 @@ def log_violations(violations: list, image_name: str):
             ])
 
 
-def log_video_violations(violation_counts: dict, video_name: str):
+def log_video_violations(violation_events: list, video_name: str):
     """
-    Logs an aggregated summary of violations found across an entire video.
-    One row per violation type, with the count of frames it appeared in
-    (not per-instance, since a video can have thousands of frames).
+    Logs each violation event (with its start/end timestamp) found in a
+    video to the CSV file — one row per continuous violation occurrence.
+    Example row: "no hardhat", "01:15 - 01:20"
     """
-    if not violation_counts:
+    if not violation_events:
         return
 
     file_exists = os.path.isfile(LOG_FILE)
@@ -48,10 +49,11 @@ def log_video_violations(violation_counts: dict, video_name: str):
         writer = csv.writer(f)
         if not file_exists:
             writer.writerow(["timestamp", "image", "violation_type", "confidence"])
-        for violation_type, frame_count in violation_counts.items():
+        for event in violation_events:
+            time_range = f"{format_timestamp(event['start_seconds'])} - {format_timestamp(event['end_seconds'])}"
             writer.writerow([
                 datetime.now().isoformat(),
                 video_name,
-                f"{violation_type} (in {frame_count} frames)",
+                f"{event['type']} ({time_range})",
                 "-",
             ])
